@@ -35,4 +35,13 @@ public class EmployeeController {
     public Employee findById(@PathVariable int id){
         return this.employeeService.findById(id);
     }
+
+
+    @DeleteMapping(path = "{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEmployeeById(@PathVariable int id){
+        this.employeeService.deleteEmployeeById(id);
+    }
+
+
 }

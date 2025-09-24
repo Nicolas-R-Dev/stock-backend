@@ -5,6 +5,8 @@ import com.github.nicolas.stock.entity.Employee;
 import com.github.nicolas.stock.repository.AssignmentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AssignmentService {
     private AssignmentRepository assignmentRepository;
@@ -20,5 +22,9 @@ public class AssignmentService {
         assignment.setEmployee(employee);
         this.assignmentRepository.save(assignment);
 
+    }
+
+    public List<Assignment> find(){
+        return this.assignmentRepository.findAll();
     }
 }

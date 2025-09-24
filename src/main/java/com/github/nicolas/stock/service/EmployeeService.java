@@ -1,7 +1,9 @@
 package com.github.nicolas.stock.service;
 
 import com.github.nicolas.stock.entity.Employee;
+import com.github.nicolas.stock.exception.NotFoundException;
 import com.github.nicolas.stock.repository.EmployeeRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,5 +37,12 @@ public class EmployeeService {
         if (employeeByUnn == null) employeeByUnn =  this.employeeRepository.save(employee);
 
         return employeeByUnn;
+    }
+
+    @Transactional
+    public void deleteEmployeeById(int id) {
+
+        var employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Employee not found"));
     }
 }
