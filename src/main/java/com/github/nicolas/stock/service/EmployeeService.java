@@ -44,5 +44,6 @@ public class EmployeeService {
 
         var employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Employee not found"));
+
     }
 }
