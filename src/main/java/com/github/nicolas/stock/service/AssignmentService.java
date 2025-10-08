@@ -28,13 +28,5 @@ public class AssignmentService {
         return this.assignmentRepository.findAll();
     }
 
-
-    public boolean existsByEmployeeIdAndReturnedAtIsNull(int employeeId){
-
-
-        Assignment assignment = this.assignmentRepository.getReferenceById()
-
-
-        return false;
-    }
+//}
 }

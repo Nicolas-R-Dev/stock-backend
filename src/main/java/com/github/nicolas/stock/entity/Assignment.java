@@ -16,10 +16,11 @@ public class Assignment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "assigned_at", nullable = false, insertable = false, updatable = false)
-    private LocalDateTime assigned_at;
+    private LocalDateTime assignedAt;
 
     @JsonFormat(pattern = "yyyy-MM-dd['T'HH[:mm][:ss]]")
-    private LocalDateTime returned_at;
+    @Column(name = "returned_at")
+    private LocalDateTime returnedAt;
     @Column(name = "device_id")
     private String device;
 
@@ -32,7 +33,7 @@ public class Assignment {
         this.id = id;
         this.device = device;
         this.employee = employee;
-        this.returned_at = returned_at;
+        this.returnedAt = returned_at;
     }
 
 
@@ -44,20 +45,20 @@ public class Assignment {
         this.id = id;
     }
 
-    public LocalDateTime getAssigned_at() {
-        return assigned_at;
+    public LocalDateTime getAssignedAt() {
+        return assignedAt;
     }
 
-    public void setAssigned_at(LocalDateTime assigned_at) {
-        this.assigned_at = assigned_at;
+    public void setAssignedAt(LocalDateTime assignedAt) {
+        this.assignedAt = assignedAt;
     }
 
-    public LocalDateTime getReturned_at() {
-        return returned_at;
+    public LocalDateTime getReturnedAt() {
+        return returnedAt;
     }
 
-    public void setReturned_at(LocalDateTime returned_at) {
-        this.returned_at = returned_at;
+    public void setReturnedAt(LocalDateTime returnedAt) {
+        this.returnedAt = returnedAt;
     }
 
     public String getDevice() {
